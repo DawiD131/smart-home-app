@@ -1,6 +1,8 @@
 <template>
   <header class="navbar">
-    <span class="navbar__text">smart home app</span>
+    <div class="baseLayout">
+      <span class="navbar__text">smart home app</span>
+    </div>
   </header>
 </template>
 

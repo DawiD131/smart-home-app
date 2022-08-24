@@ -25,7 +25,7 @@ export default {
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: #ccc;
+    background-color: #717171;
     -webkit-transition: 0.4s;
     transition: 0.4s;
     border-radius: 34px;
@@ -50,7 +50,7 @@ export default {
     height: 0;
 
     &:checked + span {
-      background-color: #2196f3;
+      background-color: #1ed841;
     }
 
     &:focus + span {
