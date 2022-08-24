@@ -1,16 +1,19 @@
 <template>
   <div class="relay-tile">
+    <IconWIthName />
     <ToggleButton />
   </div>
 </template>
 
 <script>
 import ToggleButton from "@/components/atoms/ToggleButton";
+import IconWIthName from "@/components/molecules/IconWIthName";
 
 export default {
   name: "RelayTile",
   components: {
     ToggleButton,
+    IconWIthName,
   },
 };
 </script>
