@@ -1,9 +1,19 @@
 <template>
-  <h1>Dashbord</h1>
+  <navbar />
+  <div class="dashboard">
+    <RelayTile />
+  </div>
 </template>
 
 <script>
+import navbar from "../organisms/Navbar.vue";
+import RelayTile from "../organisms/RelayTile.vue";
+
 export default {
   name: "dash-board",
+  components: {
+    navbar,
+    RelayTile,
+  },
 };
 </script>
