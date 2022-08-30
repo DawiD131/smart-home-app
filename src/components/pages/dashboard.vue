@@ -5,15 +5,10 @@
   </div>
 </template>
 
-<script>
+<script setup>
 import navbar from "../organisms/Navbar.vue";
 import RelayTile from "../organisms/RelayTile.vue";
+import { inject } from "vue";
 
-export default {
-  name: "dash-board",
-  components: {
-    navbar,
-    RelayTile,
-  },
-};
+const mqtt = inject("mqtt")();
 </script>
