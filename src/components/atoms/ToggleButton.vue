@@ -1,6 +1,10 @@
 <template>
   <label class="switch">
-    <input type="checkbox" />
+    <input
+      type="checkbox"
+      @input="(event) => $emit('update:checked', event.target.checked)"
+      :checked="checked"
+    />
     <span class="switch__slider"></span>
   </label>
 </template>
@@ -8,6 +12,11 @@
 <script>
 export default {
   name: "ToggleButton",
+  props: {
+    checked: {
+      type: Boolean,
+    },
+  },
 };
 </script>
 

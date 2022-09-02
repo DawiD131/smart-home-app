@@ -1,7 +1,7 @@
 <template>
   <div class="relay-tile">
     <IconWIthName iconName="bulb" text="floor lamp" />
-    <ToggleButton />
+    <ToggleButton v-model:checked="relayState" />
     <span>state: off</span>
   </div>
 </template>
@@ -9,12 +9,34 @@
 <script>
 import ToggleButton from "@/components/atoms/ToggleButton";
 import IconWIthName from "@/components/molecules/IconWIthName";
+import { useMqttPublisher } from "@/composables/useMqttPublisher";
+import { ref, watchEffect } from "vue";
 
 export default {
   name: "RelayTile",
   components: {
     ToggleButton,
     IconWIthName,
+  },
+  setup() {
+    const relayState = ref(false);
+    const { publishMessage } = useMqttPublisher("relay_1");
+
+    watchEffect(() => {
+      publishMessage(
+        "relay_1",
+        Buffer.from(
+          JSON.stringify({
+            device_state: relayState.value,
+            device_name: "relay_1",
+          })
+        )
+      );
+    });
+
+    return {
+      relayState,
+    };
   },
 };
 </script>
