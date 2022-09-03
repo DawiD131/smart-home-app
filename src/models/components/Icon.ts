@@ -1,1 +1,1 @@
-export type Icons = "bulb";
+export type Icons = "bulb" | "water" | "temp";
