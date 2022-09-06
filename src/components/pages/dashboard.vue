@@ -1,8 +1,8 @@
 <template>
   <Navbar />
   <div class="dashboard baseLayout">
-    <RelayTile deviceName="relay_1" />
-    <RelayTile deviceName="relay_2" />
+    <RelayTile displayName="desk lamp" uniqueSubscriberId="relay_2" />
+    <RelayTile displayName="floor lamp" uniqueSubscriberId="relay_1" />
     <SensorTile
       displayName="humidity"
       sensorType="humidity"

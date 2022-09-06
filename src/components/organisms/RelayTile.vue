@@ -1,7 +1,7 @@
 <template>
   <DeviceTileFrame>
     <template #name>
-      <IconWIthName iconName="bulb" :text="deviceName" />
+      <IconWIthName iconName="bulb" :text="displayName" />
     </template>
     <template #control>
       <ToggleButton v-model:checked="relayState" />
@@ -17,15 +17,16 @@ import { ref, toRefs, watchEffect } from "vue";
 import DeviceTileFrame from "@/components/atoms/DeviceTileFrame.vue";
 
 const props = defineProps<{
-  deviceName: string;
+  displayName: string;
+  uniqueSubscriberId: string;
 }>();
 
-const { deviceName } = toRefs(props);
+const { displayName, uniqueSubscriberId } = toRefs(props);
 const relayState = ref(false);
 const { publishMessage } = useMqtt();
 
 watchEffect(() => {
-  publishMessage(deviceName.value, {
+  publishMessage(uniqueSubscriberId.value, {
     device_state: relayState.value,
   });
 });
