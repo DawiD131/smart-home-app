@@ -20,14 +20,14 @@ const { degree } = toRefs(props);
   display: flex;
   align-items: flex-start;
   gap: 0.5rem;
-  font-size: 4.5rem;
+  font-size: 4rem;
 
   &__value {
     color: #c0392b;
   }
 
   &__unit {
-    font-size: 3rem;
+    font-size: 2.3rem;
     margin-top: 0.5rem;
   }
 }

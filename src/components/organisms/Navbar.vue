@@ -16,13 +16,17 @@ export default {
 @import "../../styles/variables.scss";
 
 .navbar {
-  padding: 2rem 0;
-  background: $background-primary-c-light;
+  padding: 1.7rem 0;
+  background: rgba(255, 255, 255, 0.55);
   box-shadow: 0px -9px 40px rgba(0, 0, 0, 0.25);
+  position: sticky;
+  top: 0;
+  z-index: 9999;
 
   &__text {
     font-size: 2.4rem;
-    color: $white-c;
+    font-weight: 300;
+    color: $black-c;
   }
 }
 </style>

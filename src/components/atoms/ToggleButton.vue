@@ -24,8 +24,8 @@ export default {
 .switch {
   position: relative;
   display: inline-block;
-  width: 75px;
-  height: 44px;
+  width: 70px;
+  height: 40px;
 
   &__slider {
     position: absolute;
@@ -42,8 +42,8 @@ export default {
     &::before {
       position: absolute;
       content: "";
-      height: 33px;
-      width: 33px;
+      height: 30px;
+      width: 30px;
       left: 6px;
       bottom: 5px;
       background-color: white;
@@ -67,9 +67,9 @@ export default {
     }
 
     &:checked + span:before {
-      -webkit-transform: translateX(26px);
-      -ms-transform: translateX(26px);
-      transform: translateX(30px);
+      -webkit-transform: translateX(28px);
+      -ms-transform: translateX(28px);
+      transform: translateX(28px);
     }
   }
 }

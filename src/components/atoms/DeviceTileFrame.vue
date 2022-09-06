@@ -11,16 +11,16 @@
 @import "../../styles/variables";
 
 .device-tile-frame {
-  background: $background-secondary-c;
-  height: 27rem;
-  width: 22.1rem;
+  background: rgba(255, 255, 255, 0.86);
+  height: 24rem;
+  min-width: 22.1rem;
   border-radius: 15px;
   padding: 2rem 2.5rem;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  box-shadow: 3px 4px 43px rgba(0, 0, 0, 0.25);
+  box-shadow: 9px 9px 30px rgba(0, 0, 0, 0.25);
 
   &__control-box {
     display: flex;

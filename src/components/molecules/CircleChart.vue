@@ -1,5 +1,5 @@
 <template>
-  <div class="c100 blue" :class="`p${percentageValue}`">
+  <div class="c100 blue small" :class="`p${percentageValue}`">
     <span>{{ percentageValue }}%</span>
     <div class="slice">
       <div class="bar"></div>
@@ -266,15 +266,9 @@ const { percentageValue } = toRefs(props);
   -webkit-box-sizing: content-box;
   box-sizing: content-box;
 }
-.c100.center {
-  float: none;
-  margin: 0 auto;
-}
-.c100.big {
-  font-size: 240px;
-}
+
 .c100.small {
-  font-size: 80px;
+  font-size: 100px;
 }
 .c100 > span {
   position: absolute;
@@ -934,60 +928,17 @@ const { percentageValue } = toRefs(props);
 .c100:hover {
   cursor: default;
 }
-.c100:hover > span {
+.c100 > span {
   width: 3.33em;
   line-height: 3.33em;
   font-size: 0.3em;
   color: #307bbb;
 }
-.c100:hover:after {
+
+.c100:after {
   top: 0.04em;
   left: 0.04em;
   width: 0.92em;
   height: 0.92em;
-}
-.c100.dark {
-  background-color: #777;
-}
-.c100.dark .bar,
-.c100.dark .fill {
-  border-color: #c6ff00 !important;
-}
-.c100.dark > span {
-  color: #777;
-}
-.c100.dark:after {
-  background-color: #666;
-}
-.c100.dark:hover > span {
-  color: #c6ff00;
-}
-.c100.green .bar,
-.c100.green .fill {
-  border-color: #4db53c !important;
-}
-.c100.green:hover > span {
-  color: #4db53c;
-}
-.c100.green.dark .bar,
-.c100.green.dark .fill {
-  border-color: #5fd400 !important;
-}
-.c100.green.dark:hover > span {
-  color: #5fd400;
-}
-.c100.orange .bar,
-.c100.orange .fill {
-  border-color: #dd9d22 !important;
-}
-.c100.orange:hover > span {
-  color: #dd9d22;
-}
-.c100.orange.dark .bar,
-.c100.orange.dark .fill {
-  border-color: #e08833 !important;
-}
-.c100.orange.dark:hover > span {
-  color: #e08833;
 }
 </style>

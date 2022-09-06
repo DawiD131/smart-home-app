@@ -18,15 +18,15 @@ import DeviceTileFrame from "@/components/atoms/DeviceTileFrame.vue";
 
 const props = defineProps<{
   displayName: string;
-  uniqueSubscriberId: string;
+  uniqueDeviceId: string;
 }>();
 
-const { displayName, uniqueSubscriberId } = toRefs(props);
+const { displayName, uniqueDeviceId } = toRefs(props);
 const relayState = ref(false);
 const { publishMessage } = useMqtt();
 
 watchEffect(() => {
-  publishMessage(uniqueSubscriberId.value, {
+  publishMessage(uniqueDeviceId.value, {
     device_state: relayState.value,
   });
 });

@@ -15,24 +15,24 @@ import IconWIthName from "@/components/molecules/IconWIthName.vue";
 import { computed, ComputedRef, ref, toRefs } from "vue";
 import CircleChart from "@/components/molecules/CircleChart.vue";
 import { Icons } from "@/models/components/Icon";
-import TempDegree from "@/components/molecules/TempDegree.vue";
+import TempDegree from "@/components/atoms/TempDegree.vue";
 import { useMqtt } from "@/composables/useMqtt";
 import DeviceTileFrame from "@/components/atoms/DeviceTileFrame.vue";
 
 const props = defineProps<{
   sensorType: "temperature" | "humidity";
   displayName: string;
-  uniqueSubscriberId: string;
+  uniqueDeviceId: string;
 }>();
 
 const { subscribeTopic } = useMqtt();
 
-const { uniqueSubscriberId, displayName, sensorType } = toRefs(props);
+const { uniqueDeviceId, displayName, sensorType } = toRefs(props);
 
 const data = ref(0);
 
 subscribeTopic(
-  uniqueSubscriberId.value,
+  uniqueDeviceId.value,
   (payload) => (data.value = Number(payload.toString()))
 );
 

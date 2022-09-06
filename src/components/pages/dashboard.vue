@@ -1,32 +1,36 @@
 <template>
   <Navbar />
   <div class="dashboard baseLayout">
-    <RelayTile displayName="desk lamp" uniqueSubscriberId="relay_2" />
-    <RelayTile displayName="floor lamp" uniqueSubscriberId="relay_1" />
-    <SensorTile
-      displayName="humidity"
-      sensorType="humidity"
-      uniqueSubscriberId="esp32/humidity"
-    />
-    <SensorTile
-      displayName="temperature"
-      sensorType="temperature"
-      uniqueSubscriberId="esp32/temperature"
+    <component
+      :is="item.type.includes('sensor') ? SensorTile : RelayTile"
+      v-for="(item, index) in getAvailableDevices"
+      :key="index"
+      :displayName="item.displayName"
+      :uniqueDeviceId="item.uniqueDeviceId"
+      :sensorType="
+        item.type.includes('temperature') ? 'temperature' : 'humidity'
+      "
     />
   </div>
 </template>
 
 <script setup lang="ts">
 import Navbar from "@/components/organisms/Navbar.vue";
-import RelayTile from "@/components/organisms/RelayTile.vue";
-import SensorTile from "@/components/organisms/SensorTile.vue";
+import RelayTile from "@/components/organisms/deviceTiles/RelayTile.vue";
+import SensorTile from "@/components/organisms/deviceTiles/SensorTile.vue";
+import { getAvailableDevices } from "@/mockApiResponses";
 </script>
 
 <style lang="scss" scoped>
 .dashboard {
-  margin-top: 4rem;
+  margin-top: 5rem;
   display: flex;
   gap: 5rem;
   flex-wrap: wrap;
+  padding-bottom: 10rem;
+
+  @media (max-width: 500px) {
+    justify-content: center;
+  }
 }
 </style>

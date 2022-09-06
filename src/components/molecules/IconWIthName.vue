@@ -1,6 +1,6 @@
 <template>
   <div class="iconWithName">
-    <Icon :iconName="iconName" />
+    <Icon :iconName="iconName" class="iconWithName__icon" />
     <span class="iconWithName__name">{{ text }}</span>
   </div>
 </template>
@@ -18,16 +18,24 @@ const props = defineProps<{
 const { text, iconName } = toRefs(props);
 </script>
 
-<style scoped lang="scss">
+<style lang="scss">
 .iconWithName {
   width: 100%;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
+  gap: 1.5rem;
+
+  &__icon {
+    > svg {
+      width: 3rem;
+      height: 3.5rem;
+    }
+  }
 
   &__name {
-    font-size: 2.1rem;
-    font-weight: 400;
+    font-size: 1.8rem;
+    font-weight: 300;
   }
 }
 </style>
