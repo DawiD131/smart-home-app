@@ -3,8 +3,16 @@
   <div class="dashboard baseLayout">
     <RelayTile deviceName="relay_1" />
     <RelayTile deviceName="relay_2" />
-    <SensorTile deviceName="humidity" sensorType="humidity" />
-    <SensorTile deviceName="temperature" sensorType="temperature" />
+    <SensorTile
+      displayName="humidity"
+      sensorType="humidity"
+      uniqueDeviceId="esp32/humidity"
+    />
+    <SensorTile
+      displayName="temperature"
+      sensorType="temperature"
+      uniqueDeviceId="esp32/temperature"
+    />
   </div>
 </template>
 

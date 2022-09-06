@@ -1,26 +1,37 @@
 <template>
   <div class="sensor-tile">
-    <IconWIthName :iconName="getIconName" :text="deviceName" />
+    <IconWIthName :iconName="getIconName" :text="displayName" />
     <div class="sensor-tile__chart-box">
-      <TempDegree degree="22" v-if="isTemperatureSensor" />
-      <CircleChart v-else />
+      <TempDegree :degree="data" v-if="isTemperatureSensor" />
+      <CircleChart v-else :percentageValue="data" />
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import IconWIthName from "@/components/molecules/IconWIthName";
-import { computed, ComputedRef, toRefs } from "vue";
-import CircleChart from "@/components/molecules/CircleChart";
+import IconWIthName from "@/components/molecules/IconWIthName.vue";
+import { computed, ComputedRef, ref, toRefs } from "vue";
+import CircleChart from "@/components/molecules/CircleChart.vue";
 import { Icons } from "@/models/components/Icon";
 import TempDegree from "@/components/molecules/TempDegree.vue";
+import { useMqtt } from "@/composables/useMqtt";
 
 const props = defineProps<{
   sensorType: "temperature" | "humidity";
-  deviceName: string;
+  displayName: string;
+  uniqueDeviceId: string;
 }>();
 
-const { deviceName, sensorType } = toRefs(props);
+const { subscribeTopic } = useMqtt();
+
+const { uniqueDeviceId, displayName, sensorType } = toRefs(props);
+
+const data = ref(0);
+
+subscribeTopic(uniqueDeviceId.value, (payload) => {
+  console.log(payload.toString());
+  data.value = Number(payload.toString());
+});
 
 const isTemperatureSensor = computed(() => sensorType.value === "temperature");
 

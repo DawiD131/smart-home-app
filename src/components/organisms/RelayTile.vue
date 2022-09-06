@@ -10,7 +10,7 @@
 <script>
 import ToggleButton from "@/components/atoms/ToggleButton";
 import IconWIthName from "@/components/molecules/IconWIthName";
-import { useMqttPublisher } from "@/composables/useMqttPublisher";
+import { useMqtt } from "@/composables/useMqtt";
 import { ref, toRefs, watchEffect } from "vue";
 
 export default {
@@ -27,7 +27,7 @@ export default {
   setup(props) {
     const { deviceName } = toRefs(props);
     const relayState = ref(false);
-    const { publishMessage } = useMqttPublisher("relay_1");
+    const { publishMessage } = useMqtt("relay_1");
 
     watchEffect(() => {
       publishMessage(
