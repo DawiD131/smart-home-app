@@ -6,20 +6,20 @@
     <SensorTile
       displayName="humidity"
       sensorType="humidity"
-      uniqueDeviceId="esp32/humidity"
+      uniqueSubscriberId="esp32/humidity"
     />
     <SensorTile
       displayName="temperature"
       sensorType="temperature"
-      uniqueDeviceId="esp32/temperature"
+      uniqueSubscriberId="esp32/temperature"
     />
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import Navbar from "@/components/organisms/Navbar.vue";
 import RelayTile from "@/components/organisms/RelayTile.vue";
-import SensorTile from "@/components/organisms/SensorTile";
+import SensorTile from "@/components/organisms/SensorTile.vue";
 </script>
 
 <style lang="scss" scoped>

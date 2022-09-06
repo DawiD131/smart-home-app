@@ -1,8 +1,11 @@
 import { client } from "@/services/globalMqttClient";
 
 export const useMqtt = () => {
-  const publishMessage = (topic: string, payload: string | Buffer) =>
+  const publishMessage = (topic: string, _payload: unknown) => {
+    const payload = Buffer.from(JSON.stringify(_payload));
+
     client.publish(topic, payload);
+  };
 
   const subscribeTopic = (topic: string, cb: (payload: Buffer) => void) => {
     client.subscribe(topic);
