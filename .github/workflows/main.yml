@@ -6,7 +6,7 @@ name: Deploy to Raspberry Pi
 on:
   # Triggers the workflow on push or pull request events but only for the main branch
   push:
-    branches: [ main ]
+    branches: [ master ]
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -29,5 +29,10 @@ jobs:
         run: npm install
 
       - name: run build
-        run: npm run build
+        run: |
+        npm run build
+        rm -rf /var/www/
+        mv ~/actions-runner/_work/smart-home-app/smart-home-app/dist/* /var/www/
+
+
 
