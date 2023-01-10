@@ -28,8 +28,4 @@ jobs:
       - name: install dependencies
         run: npm install
 
-      - name: build
-      - run: npm run build
-
-  deploy:
-    runs-on: self-hosted
+      - name: run build
